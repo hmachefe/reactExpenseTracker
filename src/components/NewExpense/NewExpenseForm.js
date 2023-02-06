@@ -3,19 +3,37 @@ import './NewExpenseForm.css';
 
 function NewExpenseForm() {
 
-    const [enteredTitle, setEnteredTitle] = useState(''); 
+    const [userInput, setUserInput] = useState( {
+        enteredTitle: '',
+        enteredAmount: '',
+        enteredDate: '',                
+    })
+
+//    const [enteredTitle, setEnteredTitle] = useState(''); 
     const onTitleChangeHandler = (event) => {
-        setEnteredTitle(event.target.value);
+        // setEnteredTitle(event.target.value);
+        setUserInput({
+            ...userInput,
+            enteredTitle: event.target.value
+        });
     }
 
-    const [enteredAmount, setEnteredAmount] = useState(''); 
+ //   const [enteredAmount, setEnteredAmount] = useState(''); 
     const onAmountChangeHandler = (event) => {
-        setEnteredAmount(event.target.value);
+        // setEnteredAmount(event.target.value);
+        setUserInput({
+            ...userInput,
+            enteredAmount: event.target.value
+        });        
     }
 
-    const [enteredDate, setEnteredDate] = useState(''); 
+//    const [enteredDate, setEnteredDate] = useState(''); 
     const onDateChangeHandler = (event) => {
-        setEnteredDate(event.target.value);
+        // setEnteredDate(event.target.value);
+        setUserInput({
+            ...userInput,
+            enteredDate: event.target.value
+        });
     }
 
     return (
