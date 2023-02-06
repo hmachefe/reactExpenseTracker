@@ -6,6 +6,7 @@ import React, { useState } from "react";
 function ExpenseItem(props) {
 
   let [title, setTitle] = useState(props.title);
+  console.log('ExpenseItem evaluated by React');
 
   const clickHandler = () => {
     console.log('click handler    title == ', title)
