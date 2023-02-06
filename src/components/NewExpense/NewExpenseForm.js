@@ -12,27 +12,33 @@ function NewExpenseForm() {
 //    const [enteredTitle, setEnteredTitle] = useState(''); 
     const onTitleChangeHandler = (event) => {
         // setEnteredTitle(event.target.value);
-        setUserInput({
-            ...userInput,
-            enteredTitle: event.target.value
+        setUserInput((previousState) => {
+            return {
+                ...previousState,
+                enteredTitle: event.target.value
+            };
         });
     }
 
  //   const [enteredAmount, setEnteredAmount] = useState(''); 
     const onAmountChangeHandler = (event) => {
         // setEnteredAmount(event.target.value);
-        setUserInput({
-            ...userInput,
-            enteredAmount: event.target.value
-        });        
+        setUserInput((previousState) => {
+            return {
+                ...previousState,
+                enteredAmount: event.target.value
+            };
+        });
     }
 
 //    const [enteredDate, setEnteredDate] = useState(''); 
     const onDateChangeHandler = (event) => {
         // setEnteredDate(event.target.value);
-        setUserInput({
-            ...userInput,
-            enteredDate: event.target.value
+        setUserInput((previousState) => {
+            return {
+                ...previousState,
+                enteredDate: event.target.value
+            };
         });
     }
 
