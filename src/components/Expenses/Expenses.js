@@ -1,14 +1,35 @@
+import React from "react";
 import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import './Expenses.css'
+import ExpensesFilter from "./ExpensesFilter";
 
-function Expenses(props) {
+const Expenses = (props) => {
+
+    const [filteredDate, setFilteredDate] = React.useState('2021');
+
+    const onDateFilter = (selectedDate) => {
+        console.log('in Expenses.js     selectedDate == ', selectedDate);
+        setFilteredDate(selectedDate);
+    }
+
     return (
-        <Card className="expenses">
-            <ExpenseItem title={props.expenses[0].title} amount={props.expenses[0].amount} date={props.expenses[0].date} />
-            <ExpenseItem title={props.expenses[1].title} amount={props.expenses[1].amount} date={props.expenses[1].date} />
-            <ExpenseItem title={props.expenses[2].title} amount={props.expenses[2].amount} date={props.expenses[2].date} />
-        </Card>
+        <div>
+            <Card className="expenses">
+                <ExpensesFilter selectedDate={filteredDate} onDateChange={onDateFilter}/>
+                {
+                    props.expenses.filter(expense => {
+                        console.log('expense.date.getFullYear() == ', expense.date.getFullYear().toString());
+                        console.log('filteredDate == ', filteredDate.toString());
+                        return expense.date.getFullYear().toString() === filteredDate.toString()
+                    }).map((expense, index) => {
+                        return(<ExpenseItem key={index} title={expense.title} amount={expense.amount} date={expense.date} />);
+                    })
+                }
+            </Card>
+        </div>
+
+
     )
 }
 export default Expenses;
