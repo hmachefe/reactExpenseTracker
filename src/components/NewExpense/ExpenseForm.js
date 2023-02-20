@@ -60,7 +60,7 @@ import './ExpenseForm.css';
     }
 
     return (
-            <form>
+            <form onSubmit={onSubmitHandler}>
                 <div className="new-expense__controls">
                     <div className="new-expense__control">
                         <label>Title</label>
@@ -82,7 +82,7 @@ import './ExpenseForm.css';
                     </div>                                        
                 </div>                
                 <div className="new-expense__actions">
-                    <button onClick={onSubmitHandler}>Add Expense</button>
+                    <button>Add Expense</button>
                 </div>
                 <div className="new-expense__actions">
                     <button onClick={onCancelHandler}>Cancel</button>

@@ -15,7 +15,6 @@ const NewExpense = (props) => {
             ...expenseData,
             id: 10 * Math.random()
         };
-        console.log('props.onExpenseAdded(newExpenseData);');
         props.onExpenseAdded(newExpenseData);
         setIsEditing(false);
     }
