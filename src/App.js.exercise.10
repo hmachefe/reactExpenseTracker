@@ -1,0 +1,28 @@
+import React from 'react';
+
+import './styles.css'
+
+// don't change the Component name "App"
+export default function App() {
+
+    const [alert, setAlert] = React.useState('');
+
+    const enableDisplayAlert = () => {
+        setAlert(<div id="alert">
+            <h2>Are you sure?</h2>
+            <p>These changes can't be reverted!</p>
+            <button onClick={disableDisplayAlert}>Proceed</button>
+        </div>);
+    };
+
+    const disableDisplayAlert = () => {
+        setAlert();
+    }
+
+    return (
+      <div>
+        {alert}
+        <button onClick={enableDisplayAlert}>Delete</button>
+      </div>    
+    );
+}
