@@ -54,8 +54,13 @@ import './ExpenseForm.css';
         setEnteredDate('');
     }
 
+    const onCancelHandler = (event) => {
+        event.preventDefault();
+        props.onCancelExpenseData();
+    }
+
     return (
-            <form onSubmit={onSubmitHandler}>
+            <form>
                 <div className="new-expense__controls">
                     <div className="new-expense__control">
                         <label>Title</label>
@@ -77,8 +82,11 @@ import './ExpenseForm.css';
                     </div>                                        
                 </div>                
                 <div className="new-expense__actions">
-                    <button>Add Expense</button>
+                    <button onClick={onSubmitHandler}>Add Expense</button>
                 </div>
+                <div className="new-expense__actions">
+                    <button onClick={onCancelHandler}>Cancel</button>
+                </div>                
             </form>
     );
 }
